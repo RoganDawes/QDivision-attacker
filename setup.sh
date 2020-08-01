@@ -25,4 +25,4 @@ echo br_nefilter >> /etc/modules
 apt update
 apt install -y python3-setuptools python3-dev libpcap-dev
 
-cp pitm-systctl.conf /etc/sysctl.d/
+cp pitm-sysctl.conf /etc/sysctl.d/
