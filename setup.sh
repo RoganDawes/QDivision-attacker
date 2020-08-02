@@ -13,10 +13,7 @@ done
 
 cp NetworkManager.conf /etc/NetworkManager/NetworkManager.conf
 
-echo mac80211_hwsim > /etc/modules
-echo br_nefilter >> /etc/modules
-
-# systemctl disable serial-getty@ttyGS0.service
+printf "g_serial\nmac80211_hwsim\nbr_netfilter\n" > /etc/modules
 
 apt update
 DEBIAN_FRONTEND=noninteractive apt install -y python3-setuptools python3-dev libpcap-dev
