@@ -20,4 +20,5 @@ DEBIAN_FRONTEND=noninteractive apt install -y python3-setuptools python3-dev lib
 DEBIAN_FRONTEND=noninteractive apt install -y iftop dnsmasq tcpdump ebtables redsocks macchanger
 DEBIAN_FRONTEND=noninteractive apt install -y python3-pypcap python3-dpkt python3-pyroute2 python3-iptables python3-cffi
 
+systemctl disable --now dnsmasq
 cp pitm-sysctl.conf /etc/sysctl.d/
