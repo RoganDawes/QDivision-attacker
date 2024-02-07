@@ -16,9 +16,15 @@ cp NetworkManager.conf /etc/NetworkManager/NetworkManager.conf
 printf "g_serial\nmac80211_hwsim\nbr_netfilter\n" > /etc/modules
 
 apt update
-DEBIAN_FRONTEND=noninteractive apt install -y python3-setuptools python3-dev libpcap-dev
+DEBIAN_FRONTEND=noninteractive apt install -y python3-setuptools python3-dev python3-pip
+DEBIAN_FRONTEND=noninteractive apt install -y libpcap-dev
 DEBIAN_FRONTEND=noninteractive apt install -y iftop dnsmasq tcpdump ebtables redsocks macchanger
-DEBIAN_FRONTEND=noninteractive apt install -y python3-pypcap python3-dpkt python3-pyroute2 python3-iptables python3-cffi
+DEBIAN_FRONTEND=noninteractive apt install -y libffi-dev libssl-dev
+DEBIAN_FRONTEND=noninteractive apt install -y python3-pypcap || pip3 install pypcap
+DEBIAN_FRONTEND=noninteractive apt install -y python3-dpkt || pip3 install dpkt
+DEBIAN_FRONTEND=noninteractive apt install -y python3-pyroute2 || pip3 install pyroute2
+DEBIAN_FRONTEND=noninteractive apt install -y python3-iptables
+DEBIAN_FRONTEND=noninteractive apt install -y python3-cffi || pip3 install cffi
 
 systemctl disable --now dnsmasq
 cp pitm-sysctl.conf /etc/sysctl.d/
